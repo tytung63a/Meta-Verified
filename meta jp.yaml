@@ -1,0 +1,71 @@
+mixed-port: 7890
+allow-lan: true
+mode: rule
+log-level: info
+
+proxies:
+  - name: meta jp
+    type: http
+    server: vip.nghienproxy.vn
+    port: 10001
+    username: spw9x3tvtm
+    password: "Zuu7mo+39UqxDefQy1"
+
+proxy-groups:
+  - name: Meta-Only
+    type: select
+    proxies:
+      - meta jp
+      - DIRECT
+
+rules:
+  - PROCESS-NAME,com.facebook.katana,Meta-Only
+  - PROCESS-NAME,com.facebook.lite,Meta-Only
+  - PROCESS-NAME,com.facebook.orca,Meta-Only
+  - PROCESS-NAME,com.instagram.android,Meta-Only
+  - PROCESS-NAME,com.instagram.lite,Meta-Only
+  - PROCESS-NAME,com.meta.threads,Meta-Only
+
+  - PROCESS-NAME,com.whatsapp,DIRECT
+  - PROCESS-NAME,com.whatsapp.w4b,DIRECT
+
+  - DOMAIN-SUFFIX,whatsapp.com,DIRECT
+  - DOMAIN-SUFFIX,whatsapp.net,DIRECT
+
+  - DOMAIN-SUFFIX,facebook.com,Meta-Only
+  - DOMAIN-SUFFIX,fb.com,Meta-Only
+  - DOMAIN-SUFFIX,fb.me,Meta-Only
+  - DOMAIN-SUFFIX,fb.gg,Meta-Only
+  - DOMAIN-SUFFIX,fb.watch,Meta-Only
+  - DOMAIN-SUFFIX,fbcdn.net,Meta-Only
+  - DOMAIN-SUFFIX,fbcdn.com,Meta-Only
+  - DOMAIN-SUFFIX,cdn.fbsbx.com,Meta-Only
+  - DOMAIN-SUFFIX,scontent.xx.fbcdn.net,Meta-Only
+
+  - DOMAIN-SUFFIX,messenger.com,Meta-Only
+  - DOMAIN-SUFFIX,m.me,Meta-Only
+  - DOMAIN-SUFFIX,msngr.com,Meta-Only
+
+  - DOMAIN-SUFFIX,instagram.com,Meta-Only
+  - DOMAIN-SUFFIX,cdninstagram.com,Meta-Only
+  - DOMAIN-SUFFIX,igcdn.com,Meta-Only
+  - DOMAIN-SUFFIX,ig.me,Meta-Only
+  - DOMAIN-SUFFIX,igsonar.com,Meta-Only
+
+  - DOMAIN-SUFFIX,threads.net,Meta-Only
+
+  - DOMAIN-SUFFIX,meta.com,Meta-Only
+  - DOMAIN-SUFFIX,metacdn.net,Meta-Only
+  - DOMAIN-SUFFIX,metaverse.com,Meta-Only
+
+  - DOMAIN-SUFFIX,graph.facebook.com,Meta-Only
+  - DOMAIN-SUFFIX,graph.instagram.com,Meta-Only
+  - DOMAIN-SUFFIX,business.facebook.com,Meta-Only
+  - DOMAIN-SUFFIX,ads.facebook.com,Meta-Only
+  - DOMAIN-SUFFIX,analytics.facebook.com,Meta-Only
+  - DOMAIN-SUFFIX,connect.facebook.net,Meta-Only
+
+  - IP-ASN,32934,Meta-Only
+
+  - GEOIP,CN,DIRECT
+  - MATCH,DIRECT
