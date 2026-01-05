@@ -65,6 +65,9 @@ rules:
   - DOMAIN-SUFFIX,analytics.facebook.com,Meta-Only
   - DOMAIN-SUFFIX,connect.facebook.net,Meta-Only
 
+  
+  - DOMAIN-SUFFIX,whatismyipaddress.com,Meta-Only
+
   - IP-ASN,32934,Meta-Only
 
   - GEOIP,CN,DIRECT
