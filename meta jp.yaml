@@ -6,10 +6,10 @@ log-level: info
 proxies:
   - name: meta jp
     type: http
-    server: vip.nghienproxy.vn
-    port: 10001
-    username: spw9x3tvtm
-    password: "Zuu7mo+39UqxDefQy1"
+    server: 74.81.55.37
+    port: 40556
+    username: tungrjn
+    password: "tungrjn"
 
 proxy-groups:
   - name: Meta-Only
